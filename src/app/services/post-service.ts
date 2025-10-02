@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-export interface post {
-  userId: string;
+export interface Post {
+  userId: number;
   id: number;
   title: string;
   body: string;
@@ -16,12 +16,13 @@ export class PostService {
 
   private urlApi = "https://jsonplaceholder.typicode.com/posts";
 
-  constructor(private httpClient: HttpClient){}
+  constructor(private httpClient: HttpClient) {}
 
-  getPost(): Observable<post[]> {
-
-    return this.httpClient.get<post>(this.urlApi);
-
+  getPosts(): Observable<Post[]> {
+    return this.httpClient.get<Post[]>(this.urlApi);
   }
+
+  //definir la llamada al servicio
+  //definir la interface que van a usar
   
 }
