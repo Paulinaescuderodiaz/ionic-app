@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export interface post {
   userId: string;
@@ -17,9 +18,9 @@ export class PostService {
 
   constructor(private httpClient: HttpClient){}
 
-  getPost(){
+  getPost(): Observable<post[]> {
 
-    return this.httpClient.get<any>(this.urlApi);
+    return this.httpClient.get<post>(this.urlApi);
 
   }
   
